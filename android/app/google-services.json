@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "957896054555",
+    "project_id": "mv-tool",
+    "storage_bucket": "mv-tool.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:957896054555:android:f0a2924003935ebe1fa5be",
+        "android_client_info": {
+          "package_name": "com.creatify.mv_tool"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "957896054555-5fpi3gjdgd36icaav2abutvolsdrg7j3.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.creatify.mv_tool",
+            "certificate_hash": "478d43190619945285ac9349e78c7b30312365ed"
+          }
+        },
+        {
+          "client_id": "957896054555-tofu3fap10231jhorc8361r50cfe9v14.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDNZCbzFNyy-KR_sc-EN9gfwwXw0ZN6Uns"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "957896054555-n42k5kc9ta5qoejh5op3c117rftdi9dr.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
