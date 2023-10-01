@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:mv_tool/domain/colors/colors.dart';
 
+import 'card_details.dart';
+
 class FrontCard extends StatelessWidget {
   final String imageUrl;
   final String contributerName;
@@ -14,8 +16,8 @@ class FrontCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-        padding: EdgeInsets.all(6),
-        margin: EdgeInsets.all(6),
+        padding: const EdgeInsets.all(4),
+        margin: const EdgeInsets.all(6),
         decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(10),
             border: Border.all(width: 1, color: CustomColors.darkGreyColor)),
@@ -24,32 +26,40 @@ class FrontCard extends StatelessWidget {
             GestureDetector(
               onTap: () {
                 print("open detail screen");
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => CardDetails(
+                              contributerName: contributerName,
+                            )));
               },
               child: ClipRRect(
                 borderRadius: BorderRadius.circular(5),
                 child: Image.network(imageUrl),
               ),
             ),
-            Divider(
+            const Divider(
               color: CustomColors.greyColor,
             ),
-            GestureDetector(
+            InkWell(
               onTap: () {
-                print("liked senstivity");
+                print("liked sensitivity");
               },
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Row(
+                  const Row(
+                    mainAxisAlignment: MainAxisAlignment.start,
                     children: [
                       Icon(
                         Icons.favorite,
                         color: Colors.red,
+                        size: 28,
                       ),
                       Text("100K"),
                     ],
                   ),
-                  Text('Contributer: $contributerName')
+                  Text('Contributer: $contributerName'),
                 ],
               ),
             ),
