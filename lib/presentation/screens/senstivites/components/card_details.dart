@@ -11,13 +11,13 @@ class CardDetails extends StatelessWidget {
         appBar: AppBar(
           title: Text(
             'Preview By: $contributerName',
-            style: TextStyle(
+            style: const TextStyle(
               fontSize: 17,
               color: CustomColors.blackColor,
             ),
           ),
         ),
-        body: SingleChildScrollView(
+        body: const SingleChildScrollView(
           child: Column(children: [
             // Image.network
             Text("Get Senstivity Code")

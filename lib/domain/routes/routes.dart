@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:mv_tool/presentation/screens/senstivites/sensi_details.dart';
-
 import '../../presentation/auth/google_sign_in_provider.dart';
 import '../../presentation/auth/sign_in.dart';
 import '../../presentation/screens/dashboard/components/auto_config.dart';
