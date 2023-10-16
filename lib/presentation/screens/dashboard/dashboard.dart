@@ -29,6 +29,7 @@ class DashBoardUI extends StatefulWidget {
 class _DashBoardUIState extends State<DashBoardUI> {
   late Saf safGfx;
   late Saf safGame;
+  int _index = 0;
   GamePathsDirectory gamePathsDirectory = GamePathsDirectory();
   String selectedOption = 'Option 1';
 
@@ -242,59 +243,21 @@ class _DashBoardUIState extends State<DashBoardUI> {
               //
               //
 
-              Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Container(
-                  width: double.maxFinite,
-                  decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(10),
-                      border: Border.all(
-                          width: 1, color: CustomColors.darkGreyColor)),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      const Padding(
-                        padding:
-                            EdgeInsets.symmetric(horizontal: 15, vertical: 10),
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text(
-                              "Announcements",
-                              style: TextStyle(
-                                  // fontFamily: "Fonts",
-                                  color: CustomColors.blackColor,
-                                  fontSize: 15,
-                                  fontFamily: "Fonts",
-                                  fontWeight: FontWeight.w500),
-                            ),
-                            Text("New Video, Tool & Game Related News!",
-                                style: TextStyle(
-                                    // fontFamily: "Fonts",
-                                    color: CustomColors.darkGreyColor,
-                                    fontSize: 10,
-                                    fontFamily: "Fonts",
-                                    fontWeight: FontWeight.w500)),
-                          ],
-                        ),
-                      ),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          AutoSizeText("<-- Swipe -->",
-                              color: CustomColors.darkGreyColor),
-                        ],
-                      ),
-                      AutoScrollingImages(
-                          imageClick: () {
-                            print("image Pressed");
-                          },
-                          imageUrls: const [
-                            "https://play-lh.googleusercontent.com/SjHuoGgukqVTNl2-Bj_PKZAhvThAss_esf-h3PLcsr4hRUyM5CfCo_eRCJn5D1_19g=w526-h296-rw",
-                            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSyKjArv1jAWG1VldGuEy71FSpFnKulFGnBlA"
-                          ]),
-                    ],
-                  ),
+              SizedBox(
+                height: 180, // card height
+                child: PageView.builder(
+                  itemCount: 5,
+                  controller: PageController(viewportFraction: 0.7),
+                  onPageChanged: (int index) => setState(() => _index = index),
+                  itemBuilder: (_, i) {
+                    return Transform.scale(
+                        scale: 0.96,
+                        child: ClipRRect(
+                          borderRadius: BorderRadius.circular(10),
+                          child: Image.network(
+                              'https://images.firstpost.com/wp-content/uploads/2022/07/Explained-Why-Google-and-Apple-removed-BGMI-from-their-respective-app-stores-2-years-after-PUBG-ban-2.jpg'),
+                        ));
+                  },
                 ),
               ),
 

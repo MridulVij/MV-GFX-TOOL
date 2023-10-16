@@ -30,6 +30,7 @@ class FrontCard extends StatelessWidget {
                     context,
                     MaterialPageRoute(
                         builder: (context) => CardDetails(
+                              sensiCode: "7272 8282 8282 8282",
                               contributerName: contributerName,
                             )));
               },
