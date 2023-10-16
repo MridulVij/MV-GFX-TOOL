@@ -20,7 +20,7 @@ dependencies:
   url_launcher: ^6.1.12
   flutter_svg: ^2.0.7
   path_provider: ^2.1.0
-  google_sign_in: ^6.1.4
+  google_sign_in: ^5.0.4
   firebase_auth: ^4.8.0
   shared_preferences: ^2.2.1
   firebase_storage: ^11.2.6
