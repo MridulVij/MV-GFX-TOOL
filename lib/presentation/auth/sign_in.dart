@@ -159,7 +159,7 @@ class _SignInUIState extends State<SignInUI> {
                           ),
                         ],
                       ),
-                      AutoSizeText("HandCrafted By MVISMAD")
+                      // AutoSizeText("HandCrafted By MVISMAD")
                     ],
                   ),
                 ],

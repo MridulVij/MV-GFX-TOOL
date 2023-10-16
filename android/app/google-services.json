@@ -1,6 +1,7 @@
 {
   "project_info": {
     "project_number": "957896054555",
+    "firebase_url": "https://mv-tool-default-rtdb.asia-southeast1.firebasedatabase.app",
     "project_id": "mv-tool",
     "storage_bucket": "mv-tool.appspot.com"
   },
