@@ -244,19 +244,20 @@ class _DashBoardUIState extends State<DashBoardUI> {
               //
 
               SizedBox(
-                height: 180, // card height
+                height: 200, // card height
                 child: PageView.builder(
                   itemCount: 5,
-                  controller: PageController(viewportFraction: 0.7),
+                  controller: PageController(viewportFraction: 0.93),
                   onPageChanged: (int index) => setState(() => _index = index),
                   itemBuilder: (_, i) {
                     return Transform.scale(
-                        scale: 0.96,
-                        child: ClipRRect(
+                      scale: 0.98,
+                      child: ClipRRect(
                           borderRadius: BorderRadius.circular(10),
                           child: Image.network(
-                              'https://images.firstpost.com/wp-content/uploads/2022/07/Explained-Why-Google-and-Apple-removed-BGMI-from-their-respective-app-stores-2-years-after-PUBG-ban-2.jpg'),
-                        ));
+                              'https://wallpapers.com/images/hd/awesome-pubg-game-cover-hd-lsmq43oghjmfskd2.webp')),
+                    );
+// -Why-Google-and-Apple-removed-BGMI-from-their-respective-app-stores-2-years-after-PUBG-ban-2.jpg
                   },
                 ),
               ),

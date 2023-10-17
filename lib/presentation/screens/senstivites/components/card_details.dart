@@ -6,7 +6,7 @@ class CardDetails extends StatefulWidget {
   final String contributerName;
   final String sensiCode;
 
-  CardDetails(
+  const CardDetails(
       {super.key, required this.contributerName, required this.sensiCode});
 
   @override
@@ -14,7 +14,7 @@ class CardDetails extends StatefulWidget {
 }
 
 class _CardDetailsState extends State<CardDetails> {
-  int _index = 0;
+  int _index = 10;
 
   // String sensiCode = "";
   void _copyToClipboard(BuildContext context, String text) {
@@ -44,22 +44,39 @@ class _CardDetailsState extends State<CardDetails> {
             // Image.network("")
 
             SizedBox(
-              height: 180, // card height
+              height: 200, // card height
               child: PageView.builder(
-                itemCount: 5,
-                controller: PageController(viewportFraction: 0.7),
+                itemCount: 2,
+                controller: PageController(viewportFraction: 0.93),
                 onPageChanged: (int index) => setState(() => _index = index),
                 itemBuilder: (_, i) {
                   return Transform.scale(
-                      scale: 0.96,
-                      child: ClipRRect(
+                    scale: 0.98,
+                    child: ClipRRect(
                         borderRadius: BorderRadius.circular(10),
                         child: Image.network(
-                            'https://images.firstpost.com/wp-content/uploads/2022/07/Explained-Why-Google-and-Apple-removed-BGMI-from-their-respective-app-stores-2-years-after-PUBG-ban-2.jpg'),
-                      ));
+                            'https://wallpapers.com/images/hd/awesome-pubg-game-cover-hd-lsmq43oghjmfskd2.webp')),
+                  );
+// -Why-Google-and-Apple-removed-BGMI-from-their-respective-app-stores-2-years-after-PUBG-ban-2.jpg
                 },
               ),
             ),
+
+            // GestureDetector(
+            //   onScaleStart: (ScaleStartDetails details) => print(details),
+            //   onScaleUpdate: (ScaleUpdateDetails details) => print(details),
+            //   onScaleEnd: (ScaleEndDetails details) => print(details),
+            //   child: Transform(
+            //     transform: Matrix4.rotationZ(10),
+            //     alignment: FractionalOffset.center,
+            //     child: Image.network(
+            //         'https://images.firstpost.com/wp-content/uploads/2022/07/Explained'),
+            //   ),
+            // ),
+            // InteractiveImage(
+            //   image: Image.network(
+            //       'https://wallpapers.com/images/hd/awesome-pubg-game-cover-hd-lsmq43oghjmfskd2.webp'),
+            // ),
 
             Align(
               alignment: Alignment.center,
@@ -93,5 +110,32 @@ class _CardDetailsState extends State<CardDetails> {
             ),
           ]),
         ));
+  }
+}
+
+class InteractiveImage extends StatefulWidget {
+  const InteractiveImage({required this.image});
+
+  final Image image;
+
+  @override
+  State<InteractiveImage> createState() => _InteractiveImageState();
+}
+
+class _InteractiveImageState extends State<InteractiveImage> {
+  @override
+  Widget build(BuildContext context) {
+    return new Center(
+      child: new GestureDetector(
+        onScaleStart: (ScaleStartDetails details) => print(details),
+        onScaleUpdate: (ScaleUpdateDetails details) => print(details),
+        onScaleEnd: (ScaleEndDetails details) => print(details),
+        child: new Transform(
+          transform: new Matrix4.rotationZ(0),
+          alignment: FractionalOffset.center,
+          child: widget.image,
+        ),
+      ),
+    );
   }
 }

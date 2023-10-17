@@ -42,24 +42,24 @@ class FrontCard extends StatelessWidget {
             const Divider(
               color: CustomColors.greyColor,
             ),
-            InkWell(
+            GestureDetector(
               onTap: () {
                 print("liked sensitivity");
               },
               child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                mainAxisAlignment: MainAxisAlignment.end, // spacedbetween
                 children: [
-                  const Row(
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    children: [
-                      Icon(
-                        Icons.favorite,
-                        color: Colors.red,
-                        size: 28,
-                      ),
-                      Text("100K"),
-                    ],
-                  ),
+                  // const Row(
+                  //   mainAxisAlignment: MainAxisAlignment.start,
+                  //   children: [
+                  //     Icon(
+                  //       Icons.favorite,
+                  //       color: Colors.red,
+                  //       size: 28,
+                  //     ),
+                  //     Text("100K"),
+                  //   ],
+                  // ),
                   Text('Contributer: $contributerName'),
                 ],
               ),
