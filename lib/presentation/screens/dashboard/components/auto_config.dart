@@ -3,6 +3,25 @@ import '../../../../domain/colors/colors.dart';
 import '../../../components/custom_new_button.dart';
 import '../../../components/custom_selector.dart';
 
+enum AutoGFX {
+  one,
+  two,
+  three,
+  four,
+  five,
+  six,
+  seven,
+  eight,
+  nine,
+  ten,
+  eleven,
+  twelve
+}
+
+enum FPS { one, two, three, four, five, six }
+
+enum SoundQuality { low, high, ultra }
+
 class AutoConfigUI extends StatefulWidget {
   const AutoConfigUI({super.key});
 
@@ -19,6 +38,9 @@ class _AutoConfigUIState extends State<AutoConfigUI> {
   bool _gpuOptimization = false;
   @override
   Widget build(BuildContext context) {
+    var autogfx = AutoGFX.one;
+    var fps = FPS.four;
+    var soundQuality = SoundQuality.high;
     return Scaffold(
       appBar: AppBar(
         title: const Text(
@@ -93,7 +115,12 @@ class _AutoConfigUIState extends State<AutoConfigUI> {
                               centerText: true,
                               forwardIcon: false,
                               isSquareShapeButton: false,
-                              onPress: () {},
+                              isSelected: autogfx == AutoGFX.one,
+                              onPress: () {
+                                setState(() {
+                                  autogfx = AutoGFX.one;
+                                });
+                              },
                               titleText: "144p",
                             ),
                             CustomSelector(
@@ -101,7 +128,12 @@ class _AutoConfigUIState extends State<AutoConfigUI> {
                               centerText: true,
                               forwardIcon: false,
                               isSquareShapeButton: false,
-                              onPress: () {},
+                              isSelected: autogfx == AutoGFX.two,
+                              onPress: () {
+                                setState(() {
+                                  autogfx = AutoGFX.two;
+                                });
+                              },
                               titleText: "240p",
                             ),
                             CustomSelector(
@@ -109,7 +141,12 @@ class _AutoConfigUIState extends State<AutoConfigUI> {
                               centerText: true,
                               forwardIcon: false,
                               isSquareShapeButton: false,
-                              onPress: () {},
+                              isSelected: autogfx == AutoGFX.three,
+                              onPress: () {
+                                setState(() {
+                                  autogfx = AutoGFX.three;
+                                });
+                              },
                               titleText: "360p",
                             ),
                           ],
@@ -125,7 +162,12 @@ class _AutoConfigUIState extends State<AutoConfigUI> {
                               centerText: true,
                               forwardIcon: false,
                               isSquareShapeButton: false,
-                              onPress: () {},
+                              isSelected: autogfx == AutoGFX.four,
+                              onPress: () {
+                                setState(() {
+                                  autogfx = AutoGFX.four;
+                                });
+                              },
                               titleText: "480p",
                             ),
                             CustomSelector(
@@ -133,7 +175,12 @@ class _AutoConfigUIState extends State<AutoConfigUI> {
                               centerText: true,
                               forwardIcon: false,
                               isSquareShapeButton: false,
-                              onPress: () {},
+                              isSelected: autogfx == AutoGFX.five,
+                              onPress: () {
+                                setState(() {
+                                  autogfx = AutoGFX.five;
+                                });
+                              },
                               titleText: "540p",
                             ),
                             CustomSelector(
@@ -141,7 +188,12 @@ class _AutoConfigUIState extends State<AutoConfigUI> {
                               centerText: true,
                               forwardIcon: false,
                               isSquareShapeButton: false,
-                              onPress: () {},
+                              isSelected: autogfx == AutoGFX.six,
+                              onPress: () {
+                                setState(() {
+                                  autogfx = AutoGFX.six;
+                                });
+                              },
                               titleText: "620p",
                             ),
                           ],
@@ -157,7 +209,12 @@ class _AutoConfigUIState extends State<AutoConfigUI> {
                               centerText: true,
                               forwardIcon: false,
                               isSquareShapeButton: false,
-                              onPress: () {},
+                              isSelected: autogfx == AutoGFX.seven,
+                              onPress: () {
+                                setState(() {
+                                  autogfx = AutoGFX.seven;
+                                });
+                              },
                               titleText: "740p",
                             ),
                             CustomSelector(
@@ -165,7 +222,12 @@ class _AutoConfigUIState extends State<AutoConfigUI> {
                               centerText: true,
                               forwardIcon: false,
                               isSquareShapeButton: false,
-                              onPress: () {},
+                              isSelected: autogfx == AutoGFX.eight,
+                              onPress: () {
+                                setState(() {
+                                  autogfx = AutoGFX.eight;
+                                });
+                              },
                               titleText: "820p",
                             ),
                             CustomSelector(
@@ -173,7 +235,12 @@ class _AutoConfigUIState extends State<AutoConfigUI> {
                               centerText: true,
                               forwardIcon: false,
                               isSquareShapeButton: false,
-                              onPress: () {},
+                              isSelected: autogfx == AutoGFX.nine,
+                              onPress: () {
+                                setState(() {
+                                  autogfx = AutoGFX.nine;
+                                });
+                              },
                               titleText: "1080p",
                             ),
                           ],
@@ -190,7 +257,12 @@ class _AutoConfigUIState extends State<AutoConfigUI> {
                               centerText: true,
                               forwardIcon: false,
                               isSquareShapeButton: false,
-                              onPress: () {},
+                              isSelected: autogfx == AutoGFX.ten,
+                              onPress: () {
+                                setState(() {
+                                  autogfx = AutoGFX.ten;
+                                });
+                              },
                               titleText: "1280p",
                             ),
                             CustomSelector(
@@ -198,7 +270,12 @@ class _AutoConfigUIState extends State<AutoConfigUI> {
                               centerText: true,
                               forwardIcon: false,
                               isSquareShapeButton: false,
-                              onPress: () {},
+                              isSelected: autogfx == AutoGFX.eleven,
+                              onPress: () {
+                                setState(() {
+                                  autogfx = AutoGFX.eleven;
+                                });
+                              },
                               titleText: "1440p",
                             ),
                             CustomSelector(
@@ -206,7 +283,12 @@ class _AutoConfigUIState extends State<AutoConfigUI> {
                               centerText: true,
                               forwardIcon: false,
                               isSquareShapeButton: false,
-                              onPress: () {},
+                              isSelected: autogfx == AutoGFX.twelve,
+                              onPress: () {
+                                setState(() {
+                                  autogfx = AutoGFX.twelve;
+                                });
+                              },
                               titleText: "2160p",
                             ),
                           ],
@@ -266,7 +348,12 @@ class _AutoConfigUIState extends State<AutoConfigUI> {
                               centerText: true,
                               forwardIcon: false,
                               isSquareShapeButton: false,
-                              onPress: () {},
+                              isSelected: fps == FPS.one,
+                              onPress: () {
+                                setState(() {
+                                  fps = FPS.one;
+                                });
+                              },
                               titleText: "25 FPS",
                             ),
                             CustomSelector(
@@ -274,7 +361,12 @@ class _AutoConfigUIState extends State<AutoConfigUI> {
                               centerText: true,
                               forwardIcon: false,
                               isSquareShapeButton: false,
-                              onPress: () {},
+                              isSelected: fps == FPS.two,
+                              onPress: () {
+                                setState(() {
+                                  fps = FPS.two;
+                                });
+                              },
                               titleText: "30 FPS",
                             ),
                             CustomSelector(
@@ -282,7 +374,12 @@ class _AutoConfigUIState extends State<AutoConfigUI> {
                               centerText: true,
                               forwardIcon: false,
                               isSquareShapeButton: false,
-                              onPress: () {},
+                              isSelected: fps == FPS.three,
+                              onPress: () {
+                                setState(() {
+                                  fps = FPS.three;
+                                });
+                              },
                               titleText: "40 FPS",
                             ),
                           ],
@@ -298,7 +395,12 @@ class _AutoConfigUIState extends State<AutoConfigUI> {
                               centerText: true,
                               forwardIcon: false,
                               isSquareShapeButton: false,
-                              onPress: () {},
+                              isSelected: fps == FPS.four,
+                              onPress: () {
+                                setState(() {
+                                  fps = FPS.four;
+                                });
+                              },
                               titleText: "60 FPS",
                             ),
                             CustomSelector(
@@ -306,7 +408,12 @@ class _AutoConfigUIState extends State<AutoConfigUI> {
                               centerText: true,
                               forwardIcon: false,
                               isSquareShapeButton: false,
-                              onPress: () {},
+                              isSelected: fps == FPS.five,
+                              onPress: () {
+                                setState(() {
+                                  fps = FPS.five;
+                                });
+                              },
                               titleText: "90 FPS",
                             ),
                             CustomSelector(
@@ -314,7 +421,12 @@ class _AutoConfigUIState extends State<AutoConfigUI> {
                               centerText: true,
                               forwardIcon: false,
                               isSquareShapeButton: false,
-                              onPress: () {},
+                              isSelected: fps == FPS.six,
+                              onPress: () {
+                                setState(() {
+                                  fps = FPS.six;
+                                });
+                              },
                               titleText: "120 FPS",
                             ),
                           ],
@@ -374,7 +486,12 @@ class _AutoConfigUIState extends State<AutoConfigUI> {
                             centerText: true,
                             forwardIcon: false,
                             isSquareShapeButton: false,
-                            onPress: () {},
+                            isSelected: soundQuality == SoundQuality.low,
+                            onPress: () {
+                              setState(() {
+                                soundQuality = SoundQuality.low;
+                              });
+                            },
                             titleText: "LOW",
                           ),
                           CustomSelector(
@@ -382,7 +499,12 @@ class _AutoConfigUIState extends State<AutoConfigUI> {
                             centerText: true,
                             forwardIcon: false,
                             isSquareShapeButton: false,
-                            onPress: () {},
+                            isSelected: soundQuality == SoundQuality.high,
+                            onPress: () {
+                              setState(() {
+                                soundQuality = SoundQuality.high;
+                              });
+                            },
                             titleText: "HIGH",
                           ),
                           CustomSelector(
@@ -390,7 +512,12 @@ class _AutoConfigUIState extends State<AutoConfigUI> {
                             centerText: true,
                             forwardIcon: false,
                             isSquareShapeButton: false,
-                            onPress: () {},
+                            isSelected: soundQuality == SoundQuality.ultra,
+                            onPress: () {
+                              setState(() {
+                                soundQuality = SoundQuality.ultra;
+                              });
+                            },
                             titleText: "ULTRA",
                           ),
                         ],

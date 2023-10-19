@@ -19,6 +19,9 @@ import 'components/announcements_section.dart';
 // const bgmiDir = "Android/data/com.pubg.imobile";
 
 //
+
+enum GameVersion { bgmi, pubgGL, pubgTW, pubgKR, pubgVT, pubgLITE, none }
+
 class DashBoardUI extends StatefulWidget {
   const DashBoardUI({super.key});
 
@@ -51,6 +54,7 @@ class _DashBoardUIState extends State<DashBoardUI> {
   }
 
   void dialogBox() {
+    var gameVersion = GameVersion.none;
     SharedPreferences.getInstance().then((prefs) {
       bool understood = false; // prefs.getBool('understood') ?? false;
 
@@ -92,7 +96,12 @@ class _DashBoardUIState extends State<DashBoardUI> {
                             centerText: true,
                             forwardIcon: false,
                             isSquareShapeButton: false,
-                            onPress: () {},
+                            isSelected: gameVersion == GameVersion.bgmi,
+                            onPress: () {
+                              setState(() {
+                                gameVersion = GameVersion.bgmi;
+                              });
+                            },
                             titleText: "BGMI",
                           ),
                           CustomSelector(
@@ -100,7 +109,12 @@ class _DashBoardUIState extends State<DashBoardUI> {
                             centerText: true,
                             forwardIcon: false,
                             isSquareShapeButton: false,
-                            onPress: () {},
+                            isSelected: gameVersion == GameVersion.pubgGL,
+                            onPress: () {
+                              setState(() {
+                                gameVersion = GameVersion.pubgGL;
+                              });
+                            },
                             titleText: "PUBG GL",
                           ),
                         ],
@@ -116,7 +130,12 @@ class _DashBoardUIState extends State<DashBoardUI> {
                             centerText: true,
                             forwardIcon: false,
                             isSquareShapeButton: false,
-                            onPress: () {},
+                            isSelected: gameVersion == GameVersion.pubgTW,
+                            onPress: () {
+                              setState(() {
+                                gameVersion = GameVersion.pubgTW;
+                              });
+                            },
                             titleText: "PUBG TW",
                           ),
                           CustomSelector(
@@ -124,7 +143,12 @@ class _DashBoardUIState extends State<DashBoardUI> {
                             centerText: true,
                             forwardIcon: false,
                             isSquareShapeButton: false,
-                            onPress: () {},
+                            isSelected: gameVersion == GameVersion.pubgKR,
+                            onPress: () {
+                              setState(() {
+                                gameVersion = GameVersion.pubgKR;
+                              });
+                            },
                             titleText: "PUBG KR",
                           ),
                         ],
@@ -140,7 +164,12 @@ class _DashBoardUIState extends State<DashBoardUI> {
                             centerText: true,
                             forwardIcon: false,
                             isSquareShapeButton: false,
-                            onPress: () {},
+                            isSelected: gameVersion == GameVersion.pubgVT,
+                            onPress: () {
+                              setState(() {
+                                gameVersion = GameVersion.pubgVT;
+                              });
+                            },
                             titleText: "PUBG VT",
                           ),
                           CustomSelector(
@@ -148,7 +177,12 @@ class _DashBoardUIState extends State<DashBoardUI> {
                             centerText: true,
                             forwardIcon: false,
                             isSquareShapeButton: false,
-                            onPress: () {},
+                            isSelected: gameVersion == GameVersion.pubgLITE,
+                            onPress: () {
+                              setState(() {
+                                gameVersion = GameVersion.pubgLITE;
+                              });
+                            },
                             titleText: "PUBG LITE",
                           ),
                         ],

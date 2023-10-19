@@ -9,6 +9,7 @@ class CustomSelector extends StatefulWidget {
   final String titleText;
   final VoidCallback onPress;
   final bool isSquareShapeButton;
+  final bool isSelected;
 
   const CustomSelector({
     super.key,
@@ -18,6 +19,7 @@ class CustomSelector extends StatefulWidget {
     required this.titleText,
     required this.onPress,
     required this.isSquareShapeButton,
+    required this.isSelected,
   });
 
   @override
@@ -25,26 +27,26 @@ class CustomSelector extends StatefulWidget {
 }
 
 class _CustomSelectorState extends State<CustomSelector> {
-  bool _isPressed = false;
+  // bool _isPressed = false;
 
-  void _handleTap() {
-    setState(() {
-      _isPressed = !_isPressed;
-    });
+  // void _handleTap() {
+  //   setState(() {
+  //     _isPressed = !_isPressed;
+  //   });
 
-    if (widget.onPress != null) {
-      widget.onPress();
-    }
-  }
+  //   if (widget.onPress != null) {
+  //     widget.onPress();
+  //   }
+  // }
 
   @override
   Widget build(BuildContext context) {
     Color buttonColor =
-        _isPressed ? CustomColors.primaryColor : CustomColors.otherColor;
+        widget.isSelected ? CustomColors.primaryColor : CustomColors.otherColor;
     Color textColor =
-        _isPressed ? CustomColors.otherColor : CustomColors.primaryColor;
+        widget.isSelected ? CustomColors.otherColor : CustomColors.primaryColor;
     return GestureDetector(
-      onTap: _handleTap,
+      onTap: widget.onPress,
       child: Container(
         // animation of button is pending
         height: 50,
