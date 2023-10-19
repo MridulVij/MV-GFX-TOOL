@@ -20,7 +20,7 @@ import 'components/announcements_section.dart';
 
 //
 
-enum GameVersion { bgmi, pubgGL, pubgTW, pubgKR, pubgVT, pubgLITE, none }
+enum GameVersion { none, pubgLITE, pubgVT, pubgKR, pubgTW, pubgGL, bgmi }
 
 class DashBoardUI extends StatefulWidget {
   const DashBoardUI({super.key});
@@ -43,6 +43,7 @@ class _DashBoardUIState extends State<DashBoardUI> {
   bool _isPubgTaiwan = false;
   bool _isPubgLite = false;
   bool _antireset = false;
+  var gameVersion = GameVersion.pubgGL;
 
   @override
   void initState() {
@@ -54,7 +55,6 @@ class _DashBoardUIState extends State<DashBoardUI> {
   }
 
   void dialogBox() {
-    var gameVersion = GameVersion.none;
     SharedPreferences.getInstance().then((prefs) {
       bool understood = false; // prefs.getBool('understood') ?? false;
 
@@ -307,28 +307,52 @@ class _DashBoardUIState extends State<DashBoardUI> {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      const Padding(
+                      Padding(
                         padding:
                             EdgeInsets.symmetric(horizontal: 15, vertical: 10),
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
-                            Text(
-                              "GFX Mode",
-                              style: TextStyle(
-                                  // fontFamily: "Fonts",
-                                  color: CustomColors.blackColor,
-                                  fontSize: 15,
-                                  fontFamily: "Fonts",
-                                  fontWeight: FontWeight.w500),
+                            Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text(
+                                  "GFX Mode",
+                                  style: TextStyle(
+                                      // fontFamily: "Fonts",
+                                      color: CustomColors.blackColor,
+                                      fontSize: 15,
+                                      fontFamily: "Fonts",
+                                      fontWeight: FontWeight.w500),
+                                ),
+                                Text("Select Your Applying Mode!",
+                                    style: TextStyle(
+                                        // fontFamily: "Fonts",
+                                        color: CustomColors.darkGreyColor,
+                                        fontSize: 10,
+                                        fontFamily: "Fonts",
+                                        fontWeight: FontWeight.w500)),
+                              ],
                             ),
-                            Text("Select Your Applying Mode!",
-                                style: TextStyle(
-                                    // fontFamily: "Fonts",
-                                    color: CustomColors.darkGreyColor,
-                                    fontSize: 10,
-                                    fontFamily: "Fonts",
-                                    fontWeight: FontWeight.w500)),
+                            CustomButton(
+                                small: true,
+                                onSubTitle: true,
+                                subTitle: "Reset All Configs",
+                                subTitleClr: CustomColors.otherColor,
+                                subTitleSize: 9,
+                                titleSize: 12,
+                                contentColor: CustomColors.otherColor,
+                                borderRadius: 30,
+                                height: 40,
+                                // width: 160,
+                                content: Icons.delete,
+                                onPress: () {
+                                  // Navigator.pushNamed(
+                                  //     context, RoutesName.manualConfig);
+                                },
+                                title: "RESET CONFIG",
+                                titleClr: Colors.white,
+                                btnClr: Colors.blue),
                           ],
                         ),
                       ),
@@ -339,6 +363,7 @@ class _DashBoardUIState extends State<DashBoardUI> {
                           Padding(
                             padding: const EdgeInsets.all(8.0),
                             child: CustomButton(
+                                small: false,
                                 onSubTitle: true,
                                 titleSize: 17,
                                 borderRadius: 25,
@@ -371,6 +396,7 @@ class _DashBoardUIState extends State<DashBoardUI> {
                           Padding(
                             padding: const EdgeInsets.all(8.0),
                             child: CustomButton(
+                                small: false,
                                 onSubTitle: true,
                                 titleSize: 17,
                                 contentColor: CustomColors.otherColor,
@@ -456,6 +482,7 @@ class _DashBoardUIState extends State<DashBoardUI> {
                             Padding(
                               padding: const EdgeInsets.all(8.0),
                               child: CustomButton(
+                                  small: false,
                                   onSubTitle: true,
                                   subTitle: "Clear Game Cache",
                                   subTitleClr: CustomColors.otherColor,
@@ -477,6 +504,7 @@ class _DashBoardUIState extends State<DashBoardUI> {
                             Padding(
                               padding: const EdgeInsets.all(8.0),
                               child: CustomButton(
+                                  small: false,
                                   onSubTitle: true,
                                   subTitle: "Clear Game Data",
                                   subTitleClr: CustomColors.otherColor,

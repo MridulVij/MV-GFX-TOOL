@@ -185,6 +185,7 @@ class _ProfileUIState extends State<ProfileUI> {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       CustomButton(
+                        small: false,
                         onSubTitle: false,
                         titleSize: 18,
                         height: 50,

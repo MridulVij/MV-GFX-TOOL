@@ -4,23 +4,23 @@ import '../../../components/custom_new_button.dart';
 import '../../../components/custom_selector.dart';
 
 enum AutoGFX {
-  one,
-  two,
-  three,
-  four,
-  five,
-  six,
-  seven,
-  eight,
-  nine,
-  ten,
+  twelve,
   eleven,
-  twelve
+  ten,
+  nine,
+  eight,
+  seven,
+  six,
+  five,
+  four,
+  three,
+  two,
+  one
 }
 
-enum FPS { one, two, three, four, five, six }
+enum FPS { six, five, four, three, two, one }
 
-enum SoundQuality { low, high, ultra }
+enum SoundQuality { ultra, high, low }
 
 class AutoConfigUI extends StatefulWidget {
   const AutoConfigUI({super.key});
@@ -36,11 +36,12 @@ class _AutoConfigUIState extends State<AutoConfigUI> {
   bool _overclockBoost = false;
   bool _textureOptimization = false;
   bool _gpuOptimization = false;
+
+  var autogfx = AutoGFX.one;
+  var fps = FPS.four;
+  var soundQuality = SoundQuality.high;
   @override
   Widget build(BuildContext context) {
-    var autogfx = AutoGFX.one;
-    var fps = FPS.four;
-    var soundQuality = SoundQuality.high;
     return Scaffold(
       appBar: AppBar(
         title: const Text(

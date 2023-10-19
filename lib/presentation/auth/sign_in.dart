@@ -105,6 +105,7 @@ class _SignInUIState extends State<SignInUI> {
                       Padding(
                         padding: const EdgeInsets.only(bottom: 50),
                         child: CustomButton(
+                          small: false,
                           onSubTitle: false,
                           titleSize: 15,
                           height: 50,

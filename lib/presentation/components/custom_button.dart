@@ -22,6 +22,7 @@ class CustomButton extends StatelessWidget {
   Color? subTitleClr;
   double? subTitleSize;
   final bool onSubTitle;
+  bool small = true;
   CustomButton({
     Key? key,
     required this.onPress,
@@ -37,13 +38,16 @@ class CustomButton extends StatelessWidget {
     this.subTitleClr,
     this.subTitleSize,
     required this.onSubTitle,
+    required this.small,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Ink(
       height: height,
-      width: MediaQuery.sizeOf(context).width * 0.4,
+      width: small
+          ? MediaQuery.sizeOf(context).width * 0.3
+          : MediaQuery.sizeOf(context).width * 0.4,
       decoration: BoxDecoration(
         color: btnClr, // Use the custom button color
         border: Border.all(
