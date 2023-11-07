@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import '../../../../domain/colors/colors.dart';
 import '../../../../domain/paths/game_paths_directory.dart';
-import '../../../../domain/plugins/file_mover.dart';
+import '../../../../domain/plugins/android_10_file_mover.dart';
+import '../../../../domain/provider_logics/auto_gfx/manual_gfx_provider.dart';
 import '../../../components/custom_new_button.dart';
 
 class ManualConfigUI extends StatefulWidget {
@@ -31,6 +33,8 @@ class _ManualConfigUIState extends State<ManualConfigUI> {
   final String pathAccessException =
       "Android 11, 12, 13 Permissions is not allowed to paste file inside Android/data folders - Permission Restricted by Android!";
   final GlobalKey<ScaffoldState> scaffoldKey = GlobalKey<ScaffoldState>();
+
+  FileMover fileMover = FileMover();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -100,7 +104,7 @@ class _ManualConfigUIState extends State<ManualConfigUI> {
                           child: InkWell(
                             onTap: () async {
                               String shouldShowSnackbar =
-                                  await FileMover.pickFileAndSave(
+                                  await fileMover.pickFileAndSave(
                                       GamePathsDirectory.internalStoragePath +
                                           GamePathsDirectory.bgmi +
                                           GamePathsDirectory.userCustomIni,
@@ -204,11 +208,14 @@ class _ManualConfigUIState extends State<ManualConfigUI> {
                               borderRadius: BorderRadius.circular(30)),
                           child: InkWell(
                             onTap: () async {
+                              // Provider.of<ManualGfxProvider>(context,
+                              //         listen: false)
+                              //     .isFilePicked();
                               String shouldShowSnackbar =
-                                  await FileMover.pickFileAndSave(
+                                  await fileMover.pickFileAndSave(
                                       GamePathsDirectory.internalStoragePath +
                                           GamePathsDirectory.bgmi +
-                                          GamePathsDirectory.userCustomIni,
+                                          GamePathsDirectory.activeSav,
                                       "sav");
                               print(shouldShowSnackbar);
                               if (shouldShowSnackbar == "1") {
@@ -237,6 +244,7 @@ class _ManualConfigUIState extends State<ManualConfigUI> {
                           ),
                         ),
                       ),
+
                       const SizedBox(
                         height: 10,
                       ),

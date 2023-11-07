@@ -6,12 +6,16 @@ import 'card_details.dart';
 class FrontCard extends StatelessWidget {
   final String imageUrl;
   final String contributerName;
+  final String? sensi_code;
+  final List<String>? list;
   final Function()? onClick;
   const FrontCard(
       {super.key,
       required this.imageUrl,
       required this.contributerName,
-      this.onClick});
+      this.onClick,
+      required this.sensi_code,
+      required this.list});
 
   @override
   Widget build(BuildContext context) {
@@ -30,7 +34,8 @@ class FrontCard extends StatelessWidget {
                     context,
                     MaterialPageRoute(
                         builder: (context) => CardDetails(
-                              sensiCode: "7272 8282 8282 8282",
+                              imgs: list,
+                              sensiCode: sensi_code,
                               contributerName: contributerName,
                             )));
               },

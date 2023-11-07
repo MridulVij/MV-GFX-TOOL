@@ -4,17 +4,21 @@ import 'package:mv_tool/domain/colors/colors.dart';
 
 class CardDetails extends StatefulWidget {
   final String contributerName;
-  final String sensiCode;
+  final String? sensiCode;
+  final List<String>? imgs;
 
   const CardDetails(
-      {super.key, required this.contributerName, required this.sensiCode});
+      {super.key,
+      required this.contributerName,
+      required this.sensiCode,
+      required this.imgs});
 
   @override
   State<CardDetails> createState() => _CardDetailsState();
 }
 
 class _CardDetailsState extends State<CardDetails> {
-  int _index = 10;
+  int _index = 4;
 
   // String sensiCode = "";
   void _copyToClipboard(BuildContext context, String text) {
@@ -54,8 +58,8 @@ class _CardDetailsState extends State<CardDetails> {
                     scale: 0.98,
                     child: ClipRRect(
                         borderRadius: BorderRadius.circular(10),
-                        child: Image.network(
-                            'https://wallpapers.com/images/hd/awesome-pubg-game-cover-hd-lsmq43oghjmfskd2.webp')),
+                        child: Image.network(widget.imgs![_index] ??
+                            "https://img.freepik.com/premium-vector/window-operating-system-error-warning-dialog-window-popup-message-with-system-failure-flat-design_812892-54.jpg")),
                   );
 // -Why-Google-and-Apple-removed-BGMI-from-their-respective-app-stores-2-years-after-PUBG-ban-2.jpg
                 },
@@ -82,10 +86,11 @@ class _CardDetailsState extends State<CardDetails> {
               alignment: Alignment.center,
               child: InkWell(
                   onTap: () {
-                    _copyToClipboard(context, widget.sensiCode);
+                    _copyToClipboard(
+                        context, widget.sensiCode ?? "0000 0000 0000 0000");
                   },
                   child: Container(
-                    padding: EdgeInsets.all(10),
+                    padding: const EdgeInsets.all(10),
                     decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(20),
                         border: Border.all(
@@ -93,13 +98,13 @@ class _CardDetailsState extends State<CardDetails> {
                     child: Column(
                       children: [
                         Padding(
-                          padding: EdgeInsets.all(4.0),
-                          child: Text(widget.sensiCode,
-                              style: TextStyle(
+                          padding: const EdgeInsets.all(4.0),
+                          child: Text(widget.sensiCode ?? "Not Available",
+                              style: const TextStyle(
                                   color: CustomColors.primaryColor,
                                   fontSize: 18)),
                         ),
-                        Text(
+                        const Text(
                           "Click to Copy Code",
                           style: TextStyle(
                               color: CustomColors.darkGreyColor, fontSize: 12),

@@ -2,18 +2,21 @@ import 'dart:io';
 import 'package:file_picker/file_picker.dart';
 import 'package:path/path.dart' as path;
 import 'package:permission_handler/permission_handler.dart';
+import 'package:saf/saf.dart';
 
 class FileMover {
+  Saf saf = Saf("Android/data/com.pubg.imobile");
+  static bool isfileMoved = false;
 //  Android 10 Code - Working Code!
-  static Future<String> pickFileAndSave(
-      String paths, String extensionMustBe) async {
+  Future<String> pickFileAndSave(String paths, String extensionMustBe) async {
     // correct way to get runtime permission
     var status = await Permission.storage.status;
     if (!status.isGranted) {
       await Permission.manageExternalStorage.request();
     }
-    //
-
+    await saf.getDirectoryPermission(
+        isDynamic: true, grantWritePermission: true);
+//
     FilePickerResult? result = await FilePicker.platform.pickFiles();
     if (result != null && result.files.isNotEmpty) {
       if (result == false && result.files.isEmpty) return "0";
@@ -50,7 +53,11 @@ class FileMover {
         }
         try {
           // Copy the selected file to the desired folder path
-          await file.copy(desiredFilePath);
+          await saf.getDirectoryPermission(
+              grantWritePermission: true, isDynamic: true);
+
+          await file.copySync(desiredFilePath);
+
           print("File Pasted!");
           print(desiredFilePath);
         } catch (e) {
@@ -60,6 +67,7 @@ class FileMover {
       } else {
         return "0";
       }
+      isfileMoved = true;
       return "1";
     }
 

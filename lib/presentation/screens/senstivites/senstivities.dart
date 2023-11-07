@@ -12,7 +12,7 @@ class MyHomePage extends StatelessWidget {
               .snapshots(),
           builder: (context, snapshot) {
             if (snapshot.connectionState == ConnectionState.waiting) {
-              return Center(
+              return const Center(
                 child: CircularProgressIndicator(),
               );
             }
@@ -24,7 +24,7 @@ class MyHomePage extends StatelessWidget {
             }
 
             if (!snapshot.hasData || snapshot.data!.docs.isEmpty) {
-              return Center(
+              return const Center(
                 child: Text('No data available.'),
               );
             }
@@ -33,8 +33,12 @@ class MyHomePage extends StatelessWidget {
               final data = document.data() as Map<String, dynamic>;
               final contributerName = data['contributer_name'];
               final imageUrl = data['banner_img'];
+              final sensi_code = data['sensi_code'];
+              final List<String> list = data['img_1'] ?? "," "," ",";
 
               return FrontCard(
+                  list: list,
+                  sensi_code: sensi_code,
                   imageUrl: imageUrl ??
                       "https://img.freepik.com/premium-vector/window-operating-system-error-warning-dialog-window-popup-message-with-system-failure-flat-design_812892-54.jpg",
                   contributerName: contributerName);
