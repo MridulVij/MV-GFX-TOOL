@@ -27,18 +27,6 @@ class CustomSelector extends StatefulWidget {
 }
 
 class _CustomSelectorState extends State<CustomSelector> {
-  // bool _isPressed = false;
-
-  // void _handleTap() {
-  //   setState(() {
-  //     _isPressed = !_isPressed;
-  //   });
-
-  //   if (widget.onPress != null) {
-  //     widget.onPress();
-  //   }
-  // }
-
   @override
   Widget build(BuildContext context) {
     Color buttonColor =

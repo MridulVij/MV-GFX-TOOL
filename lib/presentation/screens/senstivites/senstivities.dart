@@ -5,6 +5,7 @@ import 'package:mv_tool/presentation/screens/senstivites/components/front_card.d
 class MyHomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    Map? data;
     return Scaffold(
       body: StreamBuilder<QuerySnapshot>(
           stream: FirebaseFirestore.instance
