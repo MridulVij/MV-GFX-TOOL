@@ -2,10 +2,8 @@ import 'dart:io';
 import 'package:file_picker/file_picker.dart';
 import 'package:path/path.dart' as path;
 import 'package:permission_handler/permission_handler.dart';
-import 'package:saf/saf.dart';
 
 class FileMover {
-  // Saf saf = Saf("Android/data/com.pubg.imobile");
   static bool isfileMoved = false;
 //  Android 10 Code - Working Code!
   Future<String> pickFileAndSave(String paths, String extensionMustBe) async {
@@ -16,7 +14,7 @@ class FileMover {
     }
     // await saf.getDirectoryPermission(
     //     isDynamic: true, grantWritePermission: true);
-//
+
     FilePickerResult? result = await FilePicker.platform.pickFiles();
     if (result != null && result.files.isNotEmpty) {
       if (result == false && result.files.isEmpty) return "0";
@@ -56,7 +54,7 @@ class FileMover {
           // await saf.getDirectoryPermission(
           //     grantWritePermission: true, isDynamic: true);
 
-          await file.writeAsString(desiredFilePath);
+          await file.copySync(desiredFilePath);
 
           print("File Pasted!");
           print(desiredFilePath);
