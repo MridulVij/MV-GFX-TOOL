@@ -1,52 +1,115 @@
+// import 'package:flutter/material.dart';
+// import 'package:provider/provider.dart';
+// import 'domain/colors/colors.dart';
+// import 'domain/routes/route.dart';
+// import 'domain/routes/routes.dart';
+// import 'package:firebase_core/firebase_core.dart';
+// import 'presentation/auth/google_sign_in_provider.dart';
+
+// void main() async {
+//   WidgetsFlutterBinding.ensureInitialized();
+//   await Firebase.initializeApp();
+
+//   runApp(
+//     const MainApp(),
+//   );
+// }
+
+// class MainApp extends StatelessWidget {
+//   const MainApp({super.key});
+
+//   @override
+//   Widget build(BuildContext context) {
+//     return MultiProvider(
+//       providers: [
+//         ChangeNotifierProvider(
+//           create: ((context) => GoogleSignInProvider()),
+//         ),
+//       ],
+//       child: MaterialApp(
+//         title: "MV TOOL",
+//         theme: ThemeData(
+//           scaffoldBackgroundColor: Colors.white,
+//           colorScheme: const ColorScheme.light(
+//               primary: Colors.green, secondary: Colors.white),
+//           appBarTheme: const AppBarTheme(
+//             backgroundColor: CustomColors.otherColor,
+//             elevation: 0.0,
+//             titleSpacing: 0.0,
+//             titleTextStyle:
+//                 TextStyle(fontSize: 20, fontWeight: FontWeight.w500),
+//             iconTheme: IconThemeData(color: CustomColors.primaryColor),
+//           ),
+//           useMaterial3: true,
+//         ),
+//         themeMode: ThemeMode.system,
+//         debugShowCheckedModeBanner: false,
+//         initialRoute: RoutesName.splashScreen,
+//         onGenerateRoute: Routes.generateRoute,
+//       ),
+//     );
+//   }
+// }
+
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
-import 'domain/colors/colors.dart';
-import 'domain/routes/route.dart';
-import 'domain/routes/routes.dart';
-import 'package:firebase_core/firebase_core.dart';
-import 'presentation/auth/google_sign_in_provider.dart';
+import 'dart:io';
+import 'package:file_picker/file_picker.dart';
+import 'package:flutter/material.dart';
+import 'package:path_provider/path_provider.dart';
+import 'package:path_provider/path_provider.dart';
 
-void main() async {
-  WidgetsFlutterBinding.ensureInitialized();
-  await Firebase.initializeApp();
-
-  runApp(
-    const MainApp(),
-  );
+void main() {
+  runApp(const MyApp());
 }
 
-class MainApp extends StatelessWidget {
-  const MainApp({super.key});
+class MyApp extends StatelessWidget {
+  const MyApp({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return MultiProvider(
-      providers: [
-        ChangeNotifierProvider(
-          create: ((context) => GoogleSignInProvider()),
-        ),
-      ],
-      child: MaterialApp(
-        title: "MV TOOL",
-        theme: ThemeData(
-          scaffoldBackgroundColor: Colors.white,
-          colorScheme: const ColorScheme.light(
-              primary: Colors.green, secondary: Colors.white),
-          appBarTheme: const AppBarTheme(
-            backgroundColor: CustomColors.otherColor,
-            elevation: 0.0,
-            titleSpacing: 0.0,
-            titleTextStyle:
-                TextStyle(fontSize: 20, fontWeight: FontWeight.w500),
-            iconTheme: IconThemeData(color: CustomColors.primaryColor),
-          ),
-          useMaterial3: true,
-        ),
-        themeMode: ThemeMode.system,
-        debugShowCheckedModeBanner: false,
-        initialRoute: RoutesName.splashScreen,
-        onGenerateRoute: Routes.generateRoute,
+    return MaterialApp(
+      title: 'Path Provider',
+      theme: ThemeData(
+        primarySwatch: Colors.blue,
       ),
+      home: const Test(),
+    );
+  }
+}
+
+class Test extends StatelessWidget {
+  const Test({super.key});
+
+  Future<void> writeToExternalStorage() async {
+    try {
+      final externalDir = await getExternalStorageDirectory();
+      String filePath = '${externalDir!.path}/your_file.txt';
+
+      // Now, you can use the filePath to read or write files in the external storage directory.
+      // Example: Write to the file
+      File file = File(filePath);
+      await file.writeAsString('Hello, Android/data!');
+
+      // Example: Read from the file
+      String content = await file.readAsString();
+      print('File content: $content');
+    } catch (e) {
+      print('Error: $e');
+    }
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: SafeArea(
+          child: Container(
+        child: ElevatedButton(
+          onPressed: () {
+            writeToExternalStorage();
+          },
+          child: Text('Move File!'),
+        ),
+      )),
     );
   }
 }
