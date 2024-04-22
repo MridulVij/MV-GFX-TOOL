@@ -1,18 +1,13 @@
-// import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
-import 'package:mv_tool/presentation/components/custom_autotext.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:permission_handler/permission_handler.dart';
-import 'package:saf/saf.dart';
 import '../../../domain/colors/colors.dart';
 import '../../../domain/paths/game_paths_directory.dart';
 import '../../../domain/routes/route.dart';
 import '../../components/custom_button.dart';
 import '../../components/custom_new_button.dart';
 import 'package:external_app_launcher/external_app_launcher.dart';
-
 import '../../components/custom_selector.dart';
-import 'components/announcements_section.dart';
 
 //
 // const gfxToolDir = "Android/data/com.example.mvismad_gfx_tool";
@@ -30,18 +25,18 @@ class DashBoardUI extends StatefulWidget {
 }
 
 class _DashBoardUIState extends State<DashBoardUI> {
-  late Saf safGfx;
-  late Saf safGame;
+  // late Saf safGfx;
+  // late Saf safGame;
   int _index = 0;
   GamePathsDirectory gamePathsDirectory = GamePathsDirectory();
   String selectedOption = 'Option 1';
 
-  bool _isBgmi = false;
-  bool _isPubgGlobal = false;
-  bool _isPubgVietnam = false;
-  bool _isPubgKorea = false;
-  bool _isPubgTaiwan = false;
-  bool _isPubgLite = false;
+  // bool _isBgmi = false;
+  // bool _isPubgGlobal = false;
+  // bool _isPubgVietnam = false;
+  // bool _isPubgKorea = false;
+  // bool _isPubgTaiwan = false;
+  // bool _isPubgLite = false;
   bool _antireset = false;
   var gameVersion = GameVersion.pubgGL;
 

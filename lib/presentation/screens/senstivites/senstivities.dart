@@ -35,7 +35,7 @@ class MyHomePage extends StatelessWidget {
               final contributerName = data['contributer_name'];
               final imageUrl = data['banner_img'];
               final sensi_code = data['sensi_code'];
-              final List<String> list = data['img_1'] ?? "," "," ",";
+              final List<String> list = data['img_1'] ?? "";
 
               return FrontCard(
                   list: list,

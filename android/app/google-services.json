@@ -15,11 +15,11 @@
       },
       "oauth_client": [
         {
-          "client_id": "957896054555-5fpi3gjdgd36icaav2abutvolsdrg7j3.apps.googleusercontent.com",
+          "client_id": "957896054555-e8bsnjak3h27l2j9jaa3cjij4lf9ksng.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
             "package_name": "com.creatify.mv_tool",
-            "certificate_hash": "478d43190619945285ac9349e78c7b30312365ed"
+            "certificate_hash": "af48c3b4ff9966e7c8ad12acdab97c883fb1653b"
           }
         },
         {
