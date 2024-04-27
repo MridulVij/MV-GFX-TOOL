@@ -36,10 +36,10 @@ class FileMover {
   Future<String> pickFileAndSave(
       {required String paths, required String extensionMustBe}) async {
     // correct way to get runtime permission
-    // var status = await Permission.storage.status;
-    // if (!status.isGranted) {
-    //   await Permission.manageExternalStorage.request();
-    // }
+    var status = await Permission.storage.status;
+    if (!status.isGranted) {
+      await Permission.manageExternalStorage.request();
+    }
     // await saf.getDirectoryPermission(
     //     isDynamic: true, grantWritePermission: true);
 

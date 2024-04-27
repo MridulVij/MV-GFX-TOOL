@@ -47,24 +47,23 @@ class _CardDetailsState extends State<CardDetails> {
             // Text("Get Senstivity Code")
             // Image.network("")
 
-            SizedBox(
-              height: 200, // card height
-              child: PageView.builder(
-                itemCount: 2,
-                controller: PageController(viewportFraction: 0.93),
-                onPageChanged: (int index) => setState(() => _index = index),
-                itemBuilder: (_, i) {
-                  return Transform.scale(
-                    scale: 0.98,
-                    child: ClipRRect(
-                        borderRadius: BorderRadius.circular(10),
-                        child: Image.network(widget.imgs![_index] ??
-                            "https://img.freepik.com/premium-vector/window-operating-system-error-warning-dialog-window-popup-message-with-system-failure-flat-design_812892-54.jpg")),
-                  );
-// -Why-Google-and-Apple-removed-BGMI-from-their-respective-app-stores-2-years-after-PUBG-ban-2.jpg
-                },
-              ),
-            ),
+            // SizedBox(
+            //   height: 200, // card height
+            //   child: PageView.builder(
+            //     itemCount: 2,
+            //     controller: PageController(viewportFraction: 0.93),
+            //     onPageChanged: (int index) => setState(() => _index = index),
+            //     itemBuilder: (_, i) {
+            //       return Transform.scale(
+            //         scale: 0.98,
+            //         child: ClipRRect(
+            //             borderRadius: BorderRadius.circular(10),
+            //             child: Image.network(widget.imgs![_index] ??
+            //                 "https://img.freepik.com/premium-vector/window-operating-system-error-warning-dialog-window-popup-message-with-system-failure-flat-design_812892-54.jpg")),
+            //       );
+            //     },
+            //   ),
+            // ),
 
             // GestureDetector(
             //   onScaleStart: (ScaleStartDetails details) => print(details),
