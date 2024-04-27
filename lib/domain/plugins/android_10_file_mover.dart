@@ -1,19 +1,54 @@
 import 'dart:io';
+import 'package:device_info_plus/device_info_plus.dart';
 import 'package:file_picker/file_picker.dart';
 import 'package:path/path.dart' as path;
 import 'package:permission_handler/permission_handler.dart';
 
 class FileMover {
   static bool isfileMoved = false;
-//  Android 10 Code - Working Code!
-  Future<String> pickFileAndSave(String paths, String extensionMustBe) async {
-    // correct way to get runtime permission
-    var status = await Permission.storage.status;
-    if (!status.isGranted) {
-      await Permission.manageExternalStorage.request();
+
+  Future<bool> _requestPermission(Permission permission) async {
+    AndroidDeviceInfo build = await DeviceInfoPlugin().androidInfo;
+    if (build.version.sdkInt >= 29) {
+      var re = await Permission.manageExternalStorage.request();
+      if (re.isGranted) {
+        return true;
+      } else {
+        return false;
+      }
+    } else {
+      if (await permission.isGranted) {
+        return true;
+      } else {
+        var result = await permission.request();
+        bool isCache = await permission.status.isGranted;
+        print(isCache);
+        if (result.isGranted) {
+          return true;
+        } else {
+          return false;
+        }
+      }
     }
+  }
+
+//  Android 10 Code - Working Code!
+  Future<String> pickFileAndSave(
+      {required String paths, required String extensionMustBe}) async {
+    // correct way to get runtime permission
+    // var status = await Permission.storage.status;
+    // if (!status.isGranted) {
+    //   await Permission.manageExternalStorage.request();
+    // }
     // await saf.getDirectoryPermission(
     //     isDynamic: true, grantWritePermission: true);
+
+    //
+    if (await _requestPermission(Permission.storage) == true) {
+      print("Permission is granted");
+    } else {
+      print("permission is not granted");
+    }
 
     FilePickerResult? result = await FilePicker.platform.pickFiles();
     if (result != null && result.files.isNotEmpty) {

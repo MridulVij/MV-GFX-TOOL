@@ -376,7 +376,7 @@ class _DashBoardUIState extends State<DashBoardUI> {
                                   // _showAlertDialog(
                                   //     context); // this will only show when the game version is not selected by user else direct go to next screen!
                                   Navigator.pushNamed(
-                                      context, RoutesName.autoConfig);
+                                      context, RouteNames.autoConfig);
                                   // await saf.getDirectoryPermission(
                                   //     isDynamic: true,
                                   //     grantWritePermission: true);
@@ -401,7 +401,7 @@ class _DashBoardUIState extends State<DashBoardUI> {
                                 content: Icons.settings,
                                 onPress: () {
                                   Navigator.pushNamed(
-                                      context, RoutesName.manualConfig);
+                                      context, RouteNames.manualConfig);
                                 },
                                 title: "MANUAL GFX",
                                 subTitle: "Apply Your Own Files",

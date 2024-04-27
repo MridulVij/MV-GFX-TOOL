@@ -105,10 +105,11 @@ class _ManualConfigUIState extends State<ManualConfigUI> {
                             onTap: () async {
                               String shouldShowSnackbar =
                                   await fileMover.pickFileAndSave(
-                                      GamePathsDirectory.internalStoragePath +
+                                      extensionMustBe: GamePathsDirectory
+                                              .internalStoragePath +
                                           GamePathsDirectory.bgmi +
                                           GamePathsDirectory.userCustomIni,
-                                      "ini");
+                                      paths: "ini");
                               print(shouldShowSnackbar);
                               if (shouldShowSnackbar == "1") {
                                 showSnackbar(
@@ -208,15 +209,13 @@ class _ManualConfigUIState extends State<ManualConfigUI> {
                               borderRadius: BorderRadius.circular(30)),
                           child: InkWell(
                             onTap: () async {
-                              // Provider.of<ManualGfxProvider>(context,
-                              //         listen: false)
-                              //     .isFilePicked();
                               String shouldShowSnackbar =
                                   await fileMover.pickFileAndSave(
-                                      GamePathsDirectory.internalStoragePath +
+                                      extensionMustBe: GamePathsDirectory
+                                              .internalStoragePath +
                                           GamePathsDirectory.bgmi +
-                                          GamePathsDirectory.activeSav,
-                                      "sav");
+                                          GamePathsDirectory.userCustomIni,
+                                      paths: "ini");
                               print(shouldShowSnackbar);
                               if (shouldShowSnackbar == "1") {
                                 showSnackbar(

@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:device_info_plus/device_info_plus.dart';
+import 'package:mv_tool/domain/plugins/android_10_file_mover.dart';
 import 'package:permission_handler/permission_handler.dart';
+
+import 'domain/paths/game_paths_directory.dart';
 
 class permission extends StatefulWidget {
   const permission({Key? key}) : super(key: key);
@@ -45,15 +48,27 @@ class _Permission extends State<permission> {
             style: TextStyle(fontSize: 16),
           )),
       body: Center(
-          child: ElevatedButton(
-        onPressed: () async {
-          if (await _requestPermission(Permission.storage) == true) {
-            print("Permission is granted");
-          } else {
-            print("permission is not granted");
-          }
-        },
-        child: Text('click'),
+          child: Column(
+        children: [
+          ElevatedButton(
+            onPressed: () async {
+              if (await _requestPermission(Permission.storage) == true) {
+                print("Permission is granted");
+              } else {
+                print("permission is not granted");
+              }
+            },
+            child: Text('click'),
+          ),
+          ElevatedButton(
+              onPressed: () {
+                FileMover().pickFileAndSave(
+                    paths: GamePathsDirectory.internalStoragePath +
+                        GamePathsDirectory.bgmi,
+                    extensionMustBe: 'ini');
+              },
+              child: Text('Mover'))
+        ],
       )),
     );
   }

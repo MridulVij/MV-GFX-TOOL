@@ -65,7 +65,7 @@ class _SideBarUIState extends State<SideBarUI> {
               fontSize: 15,
             ),
             onTap: () async {
-              await Navigator.pushNamed(context, RoutesName.myprofile);
+              await Navigator.pushNamed(context, RouteNames.myprofile);
 
               // Navigator.pop(context);
             },
@@ -107,7 +107,7 @@ class _SideBarUIState extends State<SideBarUI> {
               fontSize: 15,
             ),
             onTap: () async {
-              await Navigator.pushNamed(context, RoutesName.settings);
+              await Navigator.pushNamed(context, RouteNames.settings);
               // Utils.showToastMsg('Feature Available in 1.1 Update!');
             },
           ),
@@ -129,7 +129,7 @@ class _SideBarUIState extends State<SideBarUI> {
               fontSize: 15,
             ),
             onTap: () async {
-              await Navigator.pushNamed(context, RoutesName.donate);
+              await Navigator.pushNamed(context, RouteNames.donate);
               // Utils.showToastMsg('Feature Available in 1.1 Update!');
             },
           ),

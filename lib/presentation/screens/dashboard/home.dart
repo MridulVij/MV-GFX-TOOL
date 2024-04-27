@@ -56,7 +56,7 @@ class HomeUIState extends State<HomeUI> {
           actions: [
             IconButton(
               onPressed: () {
-                Navigator.pushNamed(context, RoutesName.notifications);
+                Navigator.pushNamed(context, RouteNames.notifications);
               },
               icon: const Icon(Icons.notifications_none),
             ),

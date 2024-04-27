@@ -21,7 +21,7 @@ class _SplashUIState extends State<SplashUI>
 
     SystemChrome.setEnabledSystemUIMode(SystemUiMode.immersive);
     Future.delayed(const Duration(milliseconds: 2000), () {
-      Navigator.pushReplacementNamed(context, RoutesName.authverifier);
+      Navigator.pushReplacementNamed(context, RouteNames.authverifier);
     });
   }
 
