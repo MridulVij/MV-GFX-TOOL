@@ -1,4 +1,4 @@
-class RoutesName {
+class RouteNames {
   //auth screens
   static const String signInWithGoogle = "login_screen";
   static const String dashboard = "register_screen";

@@ -29,25 +29,25 @@ class Routes {
       },
       pageBuilder: (context, animation, secondaryAnimation) {
         switch (settings.name) {
-          case RoutesName.authverifier:
+          case RouteNames.authverifier:
             return const AuthVerifier();
-          case RoutesName.dashboard:
+          case RouteNames.dashboard:
             return const DashBoardUI();
-          case RoutesName.autoConfig:
+          case RouteNames.autoConfig:
             return const AutoConfigUI();
-          case RoutesName.splashScreen:
+          case RouteNames.splashScreen:
             return const SplashUI();
-          case RoutesName.settings:
+          case RouteNames.settings:
             return const Settings();
-          case RoutesName.notifications:
+          case RouteNames.notifications:
             return const Notifications();
-          case RoutesName.manualConfig:
+          case RouteNames.manualConfig:
             return const ManualConfigUI();
-          case RoutesName.signInWithGoogle:
+          case RouteNames.signInWithGoogle:
             return const SignInUI();
-          case RoutesName.myprofile:
+          case RouteNames.myprofile:
             return const ProfileUI();
-          case RoutesName.donate:
+          case RouteNames.donate:
             return const Donate();
           // case RoutesName.sensiDetails:
           // return const SensiDetails(sensiName: );

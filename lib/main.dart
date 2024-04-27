@@ -6,50 +6,50 @@ import 'domain/routes/routes.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'presentation/auth/google_sign_in_provider.dart';
 
-void main() async {
-  WidgetsFlutterBinding.ensureInitialized();
-  await Firebase.initializeApp();
+// void main() async {
+//   WidgetsFlutterBinding.ensureInitialized();
+//   await Firebase.initializeApp();
 
-  runApp(
-    const MainApp(),
-  );
-}
+//   runApp(
+//     const MainApp(),
+//   );
+// }
 
-class MainApp extends StatelessWidget {
-  const MainApp({super.key});
+// class MainApp extends StatelessWidget {
+//   const MainApp({super.key});
 
-  @override
-  Widget build(BuildContext context) {
-    return MultiProvider(
-      providers: [
-        ChangeNotifierProvider(
-          create: ((context) => GoogleSignInProvider()),
-        ),
-      ],
-      child: MaterialApp(
-        title: "MV TOOL",
-        theme: ThemeData(
-          scaffoldBackgroundColor: Colors.white,
-          colorScheme: const ColorScheme.light(
-              primary: Colors.green, secondary: Colors.white),
-          appBarTheme: const AppBarTheme(
-            backgroundColor: CustomColors.otherColor,
-            elevation: 0.0,
-            titleSpacing: 0.0,
-            titleTextStyle:
-                TextStyle(fontSize: 20, fontWeight: FontWeight.w500),
-            iconTheme: IconThemeData(color: CustomColors.primaryColor),
-          ),
-          useMaterial3: true,
-        ),
-        themeMode: ThemeMode.system,
-        debugShowCheckedModeBanner: false,
-        initialRoute: RoutesName.splashScreen,
-        onGenerateRoute: Routes.generateRoute,
-      ),
-    );
-  }
-}
+//   @override
+//   Widget build(BuildContext context) {
+//     return MultiProvider(
+//       providers: [
+//         ChangeNotifierProvider(
+//           create: ((context) => GoogleSignInProvider()),
+//         ),
+//       ],
+//       child: MaterialApp(
+//         title: "MV TOOL",
+//         theme: ThemeData(
+//           scaffoldBackgroundColor: Colors.white,
+//           colorScheme: const ColorScheme.light(
+//               primary: Colors.green, secondary: Colors.white),
+//           appBarTheme: const AppBarTheme(
+//             backgroundColor: CustomColors.otherColor,
+//             elevation: 0.0,
+//             titleSpacing: 0.0,
+//             titleTextStyle:
+//                 TextStyle(fontSize: 20, fontWeight: FontWeight.w500),
+//             iconTheme: IconThemeData(color: CustomColors.primaryColor),
+//           ),
+//           useMaterial3: true,
+//         ),
+//         themeMode: ThemeMode.system,
+//         debugShowCheckedModeBanner: false,
+//         initialRoute: RoutesName.splashScreen,
+//         onGenerateRoute: Routes.generateRoute,
+//       ),
+//     );
+//   }
+// }
 
 // import 'package:flutter/material.dart';
 // import 'dart:io';
@@ -459,3 +459,25 @@ class MainApp extends StatelessWidget {
 //     );
 //   }
 // }
+
+// 22 April 2024
+
+import 'package:flutter/material.dart';
+import 'permission.dart';
+
+void main() {
+  runApp(const MyApp());
+}
+
+class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
+  // This widget is the root of your application.
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      title: 'Flutter Demo',
+      home: const permission(),
+    );
+  }
+}
