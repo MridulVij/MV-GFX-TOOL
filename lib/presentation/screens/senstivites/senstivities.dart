@@ -35,11 +35,13 @@ class MyHomePage extends StatelessWidget {
               final contributerName = data['contributer_name'];
               final imageUrl = data['banner_img'];
               final sensi_code = data['sensi_code'];
-              final List<String> list = data['img_1'] ??
+              final String prev1 = data['prev_photo_1'] ??
+                  "https://img.freepik.com/premium-vector/window-operating-system-error-warning-dialog-window-popup-message-with-system-failure-flat-design_812892-54.jpg";
+              final String prev2 = data['prev_photo_2'] ??
                   "https://img.freepik.com/premium-vector/window-operating-system-error-warning-dialog-window-popup-message-with-system-failure-flat-design_812892-54.jpg";
 
               return FrontCard(
-                  list: list,
+                  list: [prev1, prev2],
                   sensi_code: sensi_code,
                   imageUrl: imageUrl ??
                       "https://img.freepik.com/premium-vector/window-operating-system-error-warning-dialog-window-popup-message-with-system-failure-flat-design_812892-54.jpg",
